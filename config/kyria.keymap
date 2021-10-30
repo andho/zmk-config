@@ -22,8 +22,8 @@
 // ---------------------------------------------------------------------------------------------------------------------------------
 // |  TAB  |  Q  |  W  |  F   |  P   |  G   |                                          |  J   |  L    |  U    |  Y   |   :   | BSPC |
 // |  ESC  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L ALT   | L SHIFT |  | L SHIFT | L SHIFT |  K   |  M    |  ,    |  .   |   /   | ENTER|
-//                     | CTRL |RAISE | GUI  | L SHIFT |   TAB   |  |   RET   |  SPACE  |LOWER | BSPC  | R-ALT |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L ALT   | L SHIFT |  | L SHIFT | CONTROL |  K   |  M    |  ,    |  .   |   /   | ENTER|
+//                     | CTRL |LOWER | GUI  | L SHIFT |   TAB   |  |   BSPC  |  ENTER  | SPACE| RAISE | R-ALT |
 			bindings = <
 	&kp ESC   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI  &kp BSPC
 	&kp TAB   &mt LSHFT A &mt LCTRL R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &mt RCTRL I   &mt LSHFT O      &kp SQT
