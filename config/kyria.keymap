@@ -38,6 +38,8 @@
 #define RAISE 2
 #define CONTROL 3
 #define ADJUST 4
+#define GAME 5
+#define GAMECTRL 6
 
 &mt {
     tapping-term-ms = <150>;
@@ -59,7 +61,7 @@
 			bindings = <
 	&kp TAB   &kp Q &kp W &kp F &kp P &kp G                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI  &kp BSPC
 	&kp ESC   &mt LSHFT A &mt LCTRL R &kp S &kp T &kp D                                                &kp H &kp N  &kp E     &mt RCTRL I   &mt RSHFT O      &kp SQT
-	&mo ADJUST &kp Z &kp X &kp C &kp V &kp B &bt BT_CLR &bt BT_NXT        &kp LSHFT &mo CONTROL &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp RET
+	&mo ADJUST &kp Z &kp X &kp C &kp V &kp B &bt BT_CLR &bt BT_NXT        &tog GAME &mo CONTROL &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp RET
 	                 &mo CONTROL &kp LGUI &mo LOWER &kp RET &bt BT_SEL 0        &kp BSPC  &kp SPACE  &kp SPACE &mo RAISE &kp BSPC
 			>;
 
@@ -118,7 +120,37 @@
 	&trans &trans &trans &trans &trans &trans                                  &trans &trans  &trans  &trans   &trans  &trans
 	&trans   &trans &trans &trans &trans &trans                                                &trans &trans  &trans     &trans   &trans      &trans
 	&none &trans &trans &trans &trans &trans &none &none                   &rgb_ug RGB_TOG &none &trans &trans &trans &trans &trans &trans
-	                 &kp LALT &kp LCTRL &kp LSHFT  &none &none                  &none &none &kp RSHFT  &kp RCTRL &kp RALT			>;
+	                 &kp LALT &kp LCTRL &kp LSHFT  &none &none                  &tog GAME &none &kp RSHFT  &kp RCTRL &kp RALT			>;
+	    };
+
+		game_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  TAB  |  Q  |  W  |  F   |  P   |  G   |                                          |  J   |  L    |  U    |  Y   |   :   | BSPC |
+// |  ESC  |  A  |  R  |  S   |  T   |  D   |                                          |  H   |  N    |  E    |  I   |   O   |   '  |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L ALT   | L SHIFT |  | L SHIFT | CONTROL |  K   |  M    |  ,    |  .   |   /   | ENTER|
+//                     | CTRL | GUI  |LOWER | ENTER   |   TAB   |  |   BSPC  |  SPACE  | SPACE| RAISE | BSPC  |
+			bindings = <
+	&kp TAB   &kp T &kp Q &kp W &kp E &kp R                                                &kp Y &kp U  &kp I     &kp O   &kp P  &kp BSPC
+	&kp ESC   &kp G &kp A &kp S &kp D &kp F                                                &kp H &kp J  &kp K     &kp L   &kp SEMI      &kp SQT
+	&kp LSHFT &kp Z &kp Z &kp X &kp C &kp V &kp B &kp N        &tog GAME &mo CONTROL &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RET
+	                 &kp LCTRL &mo GAMECTRL &kp SPACE &kp SPACE &kp LALT        &kp BSPC  &kp SPACE  &kp SPACE &mo RAISE &kp BSPC
+			>;
+
+			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+		};
+
+		game_control {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |       |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   | BSPC |
+// |       |  F1 |  F2 |  F3  |  F4  |  F5  |                                          |  F6  |  -    |  =    |  [   |   ]   |   \  |
+// |       |  F7 |  F8 |  F9  |  F10 |  F11 | L ALT   | L SHIFT |  | L SHIFT | L SHIFT |  F12 |  \    |  <    |  .   |   /   | ENTER|
+//                     |      |      |      |         |         |  |         |         |      |       |       |
+			bindings = <
+	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                  &kp N6 &kp N7  &kp N8  &kp N9   &kp N0  &kp BSPC
+	&kp TAB   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                                                &kp F6 &kp MINUS  &kp EQUAL     &kp LBKT   &kp RBKT      &kp BSLH
+	&none &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &trans &trans        &trans &trans &kp F12 &kp M  &kp BSLH &kp DOT &kp DOT &trans
+	                 &trans &trans &trans  &none &none                  &none &none &kp RSHFT  &kp RCTRL &kp RALT
+            >;
 	    };
     };
 };
